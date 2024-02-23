@@ -12,8 +12,9 @@ def main():
 
     for file_path in file_handler(path,args.recursive):
         for line in read_file(file_path):
-            matches = str_search(line,searchStr)
-            printOutput(line,matches)
+            file_path = file_path if args.recursive else None
+            matches = str_search(line,searchStr,args.ignore_case)
+            printOutput(line,matches,file_path)
 
 
 if __name__ == "__main__":

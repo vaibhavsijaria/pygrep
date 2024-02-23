@@ -11,7 +11,7 @@ def read_file(file_path: Union[str, Path]) -> Generator[str, None, None]:
     except FileNotFoundError:
         print(f"File {file_path} not found.")
     except Exception as e:
-        print(f"An unexpected error occurred: {str(e)}")
+        print(f"An unexpected error occurred: {str(e)} while reading {file_path}")
 
 # def r_file_iter(dir):
 #     for root, dirs, files in os.walk(dir):
