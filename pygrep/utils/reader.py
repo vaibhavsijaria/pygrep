@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Union, Generator
+from termcolor import cprint
 import os
 import glob
 
@@ -9,9 +10,9 @@ def read_file(file_path: Union[str, Path]) -> Generator[str, None, None]:
             for line in file:
                 yield line.strip()
     except FileNotFoundError:
-        print(f"File {file_path} not found.")
+        cprint(f"File {file_path} not found.",color="dark_grey",on_color="on_red")
     except Exception as e:
-        print(f"An unexpected error occurred: {str(e)} while reading {file_path}")
+        cprint(f"An unexpected error occurred: {str(e)} while reading {file_path}",color="dark_grey",on_color="on_red")
 
 # def r_file_iter(dir):
 #     for root, dirs, files in os.walk(dir):
